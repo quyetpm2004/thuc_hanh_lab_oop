@@ -1,0 +1,17 @@
+6.1
+ - What happens if users choose "Cancel": 
+    Trả lời: Khi chọn Cancel giá trị trả về của option là Cancel khác với YES_OPTION
+            vì vậy hộp thoại sẽ hiển thị "You've chosen: No"
+ - How to customize the options to users, e.g. only two options: "Yes" and "No", OR "I do" and "I don’t"?
+    Trả lời: Ta thay vì sử dụng showConfirmDialog() thì sử dụng showOptionDialog()
+    Code: (Đã thêm vào comment của code bài 6.1)
+    Object[] options = {"I do", "I don’t"};
+    int option = JOptionPane.showOptionDialog(null, "Do you agree?", "Custom Options",
+            JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+            null, options, options[0]);
+
+    if (option == 0) {
+        JOptionPane.showMessageDialog(null, "You chose: I do");
+    } else if (option == 1) {
+        JOptionPane.showMessageDialog(null, "You chose: I don’t");
+    }
