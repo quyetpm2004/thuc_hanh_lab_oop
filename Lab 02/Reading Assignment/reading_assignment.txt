@@ -1,0 +1,4 @@
+
+??? When should accessor methods be used? 
++ Trả lời: Khi cho phép các lớp bên ngoài truy cập giá trị của thuộc tính mà vẫn đảm bảo tính đóng gói. 
+           Tức là hạn chế truy cập trực tiếp thuộc tính từ bên ngoài và chỉ cung cấp quyền đọc không cung cấp quyền ghi.
