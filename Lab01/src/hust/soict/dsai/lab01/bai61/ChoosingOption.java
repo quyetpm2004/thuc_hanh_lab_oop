@@ -1,3 +1,5 @@
+package hust.soict.dsai.lab01.bai61;
+
 import javax.swing.JOptionPane;
 
 public class ChoosingOption {
@@ -6,9 +8,6 @@ public class ChoosingOption {
         int option = JOptionPane.showConfirmDialog(null, "Do you want to change to the first class ticket?");
         JOptionPane.showMessageDialog(null, "You've chosen: " + (option == JOptionPane.YES_OPTION ? "Yes" : "No"));
         System.exit(0);
-        
-
-
         
         // Code tra loi 6.1.2
 
@@ -24,3 +23,4 @@ public class ChoosingOption {
         // }
     }
 }
+

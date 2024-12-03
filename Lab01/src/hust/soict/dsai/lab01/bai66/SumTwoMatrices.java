@@ -1,3 +1,5 @@
+package hust.soict.dsai.lab01.bai66;
+
 import java.util.Scanner;
 
 public class SumTwoMatrices {
@@ -36,3 +38,4 @@ public class SumTwoMatrices {
         }
     }
 }
+

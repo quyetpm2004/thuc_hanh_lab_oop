@@ -1,11 +1,11 @@
 package hust.soict.dsai.test.disc;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class TestPassingParameter {
 	public static void main(String[] args) {
         // Tạo hai DVD
-        DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
-        DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc("Cinderella");
+        DigitalVideoDisc jungleDVD = new DigitalVideoDisc(1, "Jungle", "Tieu thuyet", 2.45f, "abc", 145);
+        DigitalVideoDisc cinderellaDVD = new DigitalVideoDisc(2, "Cinderella", "Tieu thuyet", 2.45f, "abc", 145);
 
         // Gọi phương thức swap (chỉ thay đổi tham chiếu cục bộ, không ảnh hưởng thực tế)
         swap(jungleDVD, cinderellaDVD);

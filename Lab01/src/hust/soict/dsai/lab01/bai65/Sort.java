@@ -1,3 +1,5 @@
+package hust.soict.dsai.lab01.bai65;
+
 import java.util.Scanner;
 
 public class Sort {
@@ -34,3 +36,4 @@ public class Sort {
         }
     }
 }
+

@@ -1,25 +1,39 @@
 package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
-	private ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<>();
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
-	public void addDVD(DigitalVideoDisc dvd) {
-		if (dvd != null && dvd.getLength() > 0) {
-			itemsInStore.add(dvd);
-			System.out.println("Added DVD: " + dvd.getTitle());
-		} else if (dvd.getLength() <= 0)
-			System.out.println("The DVD \"" + dvd.getTitle() + "\" cannot add because its length is zero or less.");
-		else
-			System.out.println("Cannot add a null DVD!");
+	public void addMedia(Media media) {
+		if(itemsInStore.contains(media)) {
+			System.out.println("Media nay da ton tai");
+		} else {
+			itemsInStore.add(media);
+		}
 	}
-
-	public void removeDVD(DigitalVideoDisc dvd) {
-		if (itemsInStore.contains(dvd)) {
-			itemsInStore.remove(dvd);
-			System.out.println("Removed DVD: " + dvd.getTitle());
-		} else
-			System.out.println("DVD not found in the store.");
+	public void removeMedia(Media media) {
+		if(itemsInStore.contains(media)) {
+			itemsInStore.remove(media);
+		} else {
+			System.out.println("Media nay khong ton tai");
+		}
+	}
+	public void printStore() {
+		System.out.println("***********************STORE***********************");
+		System.out.println("Danh sach media co trong store la: ");
+		for(Media m: itemsInStore) {
+			System.out.println(m.toString());
+		}
+		System.out.println("***************************************************\n");
+	}
+	public Media checkTitleInStore(String title) {
+		for(Media m: itemsInStore) {
+			if(m.isMatch(title)) {
+				return m;
+			}
+		}
+		return null;
 	}
 }

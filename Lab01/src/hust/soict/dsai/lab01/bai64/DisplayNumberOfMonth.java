@@ -1,3 +1,5 @@
+package hust.soict.dsai.lab01.bai64;
+
 import java.util.Scanner;
 
 public class DisplayNumberOfMonth {
@@ -79,3 +81,4 @@ public class DisplayNumberOfMonth {
     }
     
 }
+

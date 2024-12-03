@@ -1,5 +1,5 @@
+package hust.soict.dsai.lab01.bai226;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class SolveEquation {

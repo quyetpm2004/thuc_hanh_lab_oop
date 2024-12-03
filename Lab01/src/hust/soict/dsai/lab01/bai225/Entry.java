@@ -1,3 +1,5 @@
+package hust.soict.dsai.lab01.bai225;
+
 import java.util.Scanner;
 
 class Entry {

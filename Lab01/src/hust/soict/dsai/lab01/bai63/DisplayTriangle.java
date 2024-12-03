@@ -1,3 +1,5 @@
+package hust.soict.dsai.lab01.bai63;
+
 import java.util.Scanner;
 
 public class DisplayTriangle {
@@ -17,3 +19,4 @@ public class DisplayTriangle {
         }
     }
 }
+
