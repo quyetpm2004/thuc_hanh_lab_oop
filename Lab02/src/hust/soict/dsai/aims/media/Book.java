@@ -6,7 +6,11 @@ public class Book extends Media {
 	public Book(int id, String title, String category, float cost) {
 		super(id, title, category, cost);
 		// TODO Auto-generated constructor stub
-	}	
+	}
+	public Book(int id, String title, String category, float cost, List<String> authors) {
+		super(id, title, category, cost);
+		this.authors = authors;
+	}
 	public void addAuthor(String authorName) {
         if (authors.contains(authorName)) {
             System.out.println("Author da ton tai.");

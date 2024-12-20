@@ -1,19 +1,26 @@
 package hust.soict.dsai.aims.cart;
 import hust.soict.dsai.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class Cart {
-	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+	public static final int MAX_NUMBERS_ORDERED = 20;
+	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	private static int quantityMedia = 0;
 	
 	public void addMedia(Media media) {
-		if(itemsOrdered.contains(media)) {
-			System.out.println("Media nay da ton tai");
-		} else {
-			itemsOrdered.add(media);
-			quantityMedia++;
-		}
+		
+			if(itemsOrdered.contains(media)) {
+				System.out.println("Media nay da ton tai");
+			} else {
+				itemsOrdered.add(media);
+				quantityMedia++;
+			}
+		
 	}
 	public void removeMedia(Media media) {
 		if(itemsOrdered.contains(media)) {
@@ -83,8 +90,11 @@ public class Cart {
 	public int getQuantityMediaInCart() {
 		return quantityMedia;
 	}
+	
 	public void removeCart() {
-		itemsOrdered.clear();
+		if(itemsOrdered != null) {
+			itemsOrdered.clear();
+		}
 	}
 	
 	// Filter theo tên
@@ -107,5 +117,9 @@ public class Cart {
         }
         return filteredList;
     }
+	public ObservableList<Media> getItemsOrdered() {
+		// TODO Auto-generated method stub
+		return itemsOrdered;
+	}
 
 }

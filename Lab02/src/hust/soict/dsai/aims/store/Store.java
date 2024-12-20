@@ -6,9 +6,11 @@ import hust.soict.dsai.aims.media.Media;
 public class Store {
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 
-	public void addMedia(Media media) {
+	public void addMedia(Media media) throws IllegalArgumentException {
 		if(itemsInStore.contains(media)) {
 			System.out.println("Media nay da ton tai");
+		} else if(media.getCost() < 0) {
+			throw new IllegalArgumentException("ERROR: Cost cannot be negative.");
 		} else {
 			itemsInStore.add(media);
 		}
@@ -35,5 +37,8 @@ public class Store {
 			}
 		}
 		return null;
+	}
+	public ArrayList<Media> getItemsInStore() {
+		return this.itemsInStore;
 	}
 }

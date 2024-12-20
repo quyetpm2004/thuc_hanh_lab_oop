@@ -8,6 +8,10 @@ public class Disc extends Media {
 		this.director = director;
 		this.length = length;
 	}
+	public Disc(int id, String title, String category, float cost, String director) {
+		super(id, title, category, cost);
+		this.director = director;
+	}
 	public String getDirector() {
 		return director;
 	}

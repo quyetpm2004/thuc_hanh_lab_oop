@@ -1,8 +1,11 @@
 package hust.soict.dsai.aims;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import hust.soict.dsai.aims.cart.Cart;
 import hust.soict.dsai.aims.media.*;
+import hust.soict.dsai.aims.screen.StoreScreen;
 import hust.soict.dsai.aims.store.Store;
 
 public class Aims {
@@ -15,6 +18,16 @@ public class Aims {
         Media cd2 = new CompactDisc(3, "Lang e vo 2", "Hai", 250f, "Chien Thang", 245, "Trinh Thang Binh");
         Media dvd2 = new DigitalVideoDisc(4, "Gia 2", "Hai", 240f, "Chien Thang", 245);
         Media book2 = new Book(5, "Cha giau cha ngheo 2", "Tien", 220f);
+		store.addMedia(new Book(8, "Dac nhan tam", "Dao ly", 36, new ArrayList<>(List.of("Dale Carnegie"))));
+		store.addMedia(new Book(9, "Dac nhan tam 2", "Dao ly", 21, new ArrayList<>(List.of("Dale Carnegie", "Dale Carnegie 2"))));
+		ArrayList<Track> trackList = new ArrayList<Track>();
+		Track newTrack1 = new Track("track1", 60);
+		Track newTrack2 = new Track("track2", 30);
+		Track newTrack3= new Track("track3", 20);
+    	trackList.add(newTrack1);
+    	trackList.add(newTrack2);
+    	trackList.add(newTrack3);
+		store.addMedia(new CompactDisc(7, "Ngắm hoa anh đào", "Tình yêu", 45, "Chí Phèo", trackList, "Director"));
         store.addMedia(cd1);
         store.addMedia(dvd1);
         store.addMedia(book1);
@@ -24,36 +37,38 @@ public class Aims {
 
         // Tạo cart rỗng
         Cart cart = new Cart();
-
-        // Xử lý chương trình
-        boolean running = true;
-        Menu menu = new Menu();
-        Scanner sc = new Scanner(System.in);
-
-        while (running) {
-            clearConsole();
-            menu.showMenu();
-            int option = promptInt(sc, "Vui lòng chọn: ");
-
-            switch (option) {
-                case 1:
-                    handleViewStore(store, sc, cart);
-                    break;
-                case 2:
-                    handleUpdateStore(store, sc);
-                    break;
-                case 3:
-                    handleSeeCart(cart, sc);
-                    break;
-                case 0:
-                    System.out.println("Goodbye!");
-                    running = false;
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ!");
-            }
-        }
-        sc.close();
+//
+//        // Xử lý chương trình
+//        boolean running = true;
+//        Menu menu = new Menu();
+//        Scanner sc = new Scanner(System.in);
+//
+//        while (running) {
+//            clearConsole();
+//            menu.showMenu();
+//            int option = promptInt(sc, "Vui lòng chọn: ");
+//
+//            switch (option) {
+//                case 1:
+//                    handleViewStore(store, sc, cart);
+//                    break;
+//                case 2:
+//                    handleUpdateStore(store, sc);
+//                    break;
+//                case 3:
+//                    handleSeeCart(cart, sc);
+//                    break;
+//                case 0:
+//                    System.out.println("Goodbye!");
+//                    running = false;
+//                    break;
+//                default:
+//                    System.out.println("Lựa chọn không hợp lệ!");
+//            }
+//        }
+//        sc.close();
+        // Mở chương trình
+        new StoreScreen(store, cart);
     }
 
     // Xóa console (nếu hệ điều hành hỗ trợ)

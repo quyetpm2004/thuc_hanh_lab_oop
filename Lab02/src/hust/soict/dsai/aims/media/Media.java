@@ -52,12 +52,23 @@ public abstract class Media {
 	
 
 	@Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Media) {
-            Media other = (Media) obj; 
-            return this.title != null && this.title.equals(other.title);
-        }
-        return false; 
-    }
+	public boolean equals(Object o) {
+		try {
+	        if (this == o) return true;
+
+	        if (o == null || getClass() != o.getClass()) return false;
+
+	        Media media = (Media) o;
+	        return this.title != null && this.title.equals(media.title);
+	        
+	    } catch (NullPointerException e) {
+	        System.err.println("NullPointerException: Title của đối tượng hoặc đối tượng là null.");
+	        return false;
+	        
+	    } catch (ClassCastException e) {
+	        System.err.println("ClassCastException: Không thể ép kiểu đối tượng so sánh.");
+	        return false;
+	    }
+	}
 
 }

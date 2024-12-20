@@ -1,13 +1,27 @@
 package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
+
+import hust.soict.dsai.aims.exception.PlayerException;
 public class CompactDisc extends Disc implements Playable {
 	private String artist;
 	private ArrayList<Track> tracks = new ArrayList<>();
-	public CompactDisc(int id, String title, String category,  float cost, String director, int length, String artist) {
-		// TODO Auto-generated constructor stub
+	public CompactDisc(int id, String title, String category, float cost, String artist, ArrayList<Track> tracks, int length, String director) {
 		super(id, title, category, cost, director, length);
 		this.artist = artist;
+		this.tracks = tracks;
 	}
+	
+	public CompactDisc(int id, String title, String category, float cost, String artist, ArrayList<Track> tracks, String director) {
+		super(id, title, category, cost, director);
+		this.artist = artist;
+		this.tracks = tracks;
+	}
+	
+	public CompactDisc(int i, String string, String string2, float f, String string3, int j, String string4) {
+		super(i, string, string2, f, string3, j);
+		this.artist = string4;
+	}
+
 	public void removeTrack(Track track) {
 		if(tracks.contains(track)) {
 			tracks.remove(track);
@@ -27,18 +41,28 @@ public class CompactDisc extends Disc implements Playable {
 	public String getArtist() {
 		return artist;
 	}
+	public ArrayList<Track> getTracks() {
+		return this.tracks;
+	}
 	@Override
     public String toString() {
         return "CD - " + "id: "  + this.getId() + " - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength() + ": " + this.getCost() + " $";
     }
 	@Override
-	public void play() {
-		System.out.println("Playing CD: " + getTitle() + " by " + artist);
-        System.out.println("Total length: " + getLength() + " mins");
+	public void play() throws PlayerException {
+	    if (this.getLength() <= 0) {
+	        throw new PlayerException("ERROR: CD length is non-positive.");
+	    }
 
-        // Lặp qua mỗi track và gọi method play của Track
-        for (Track track : tracks) {
-            track.play();  // Gọi method play của từng track
-        }
+	    System.out.println("Playing CD: " + this.getTitle());
+	    System.out.println("Artist: " + this.getArtist());
+
+	    for (Track track : tracks) {
+	        try {
+	            track.play();
+	        } catch (PlayerException e) {
+	            throw new PlayerException("Error playing track: " + track.getTitle());
+	        }
+	    }
 	}
 }
